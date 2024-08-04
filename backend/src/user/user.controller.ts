@@ -15,7 +15,7 @@ export class UserController {
   @UseGuards(AuthGuard)
   async getProfile(@Req() request) {
     const { id } = request.user;
-    const user = await this.userService.findById(+id);
+    const user = await this.userService.findById(id);
     if (!user) throw new NotFoundException();
     return user;
   }
